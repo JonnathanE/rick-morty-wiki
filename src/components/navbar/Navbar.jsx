@@ -1,4 +1,5 @@
 import { Container, LogoContainer, Menu, MenuItem, Wrapper } from './navbar.elements';
+import { NavLink } from 'react-router-dom';
 import { slide as MenuBurger } from 'react-burger-menu';
 import { useMediaQuery } from 'react-responsive';
 import { deviceSice } from '../../hook/responsive';
@@ -13,16 +14,16 @@ const Navbar = () => {
     const navbarMenu = (
         <Menu>
             <MenuItem>
-                <>Home</>
+                <NavLink to='/' className={({ isActive }) => (isActive ? " text-green-400 border-b-2 border-b-green-400" : "")}>Home</NavLink>
             </MenuItem>
             <MenuItem>
-                <>Character</>
+                <NavLink to='/characters' className={({ isActive }) => (isActive ? " text-green-400 border-b-2 border-b-green-400" : "")}>Character</NavLink>
             </MenuItem>
             <MenuItem>
-                <>Location</>
+                <NavLink to='/locations' className={({ isActive }) => (isActive ? " text-green-400 border-b-2 border-b-green-400" : "")}>Location</NavLink>
             </MenuItem>
             <MenuItem>
-                <>Episode</>
+                <NavLink to='/episodes' className={({ isActive }) => (isActive ? " text-green-400 border-b-2 border-b-green-400" : "")}>Episode</NavLink>
             </MenuItem>
         </Menu>
     )

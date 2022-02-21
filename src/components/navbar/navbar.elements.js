@@ -5,7 +5,7 @@ export const Container = tw.div`
     w-full
     h-20
     md:h-16
-    bg-gray-700
+    bg-gray-800
 `;
 
 export const Wrapper = tw.div`
@@ -41,12 +41,15 @@ export const LogoContainer = styled.div`
             ${tw`
                 mr-2
                 text-white
+                sm:text-2xl
             `}
         }
         &:nth-child(3) {
-            font-size: 1.5rem;
+            /* font-size: 1.5rem; */
             font-weight: 500;
             ${tw`
+                text-2xl
+                sm:text-3xl
                 text-green-400
             `}
         }
@@ -71,8 +74,8 @@ export const MenuItem = tw.li`
     hover:text-green-400
     font-bold
     sm:font-normal
-    hover:border-b-2
-    hover:border-b-green-400
+    // hover:border-b-2
+    // hover:border-b-green-400
     mb-3.5
     sm:mb-0
     sm:mr-4
