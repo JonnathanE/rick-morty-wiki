@@ -1,7 +1,21 @@
-import React from 'react'
-import CharacterCard from '../../components/characterCard/CharacterCard'
+import { useState, useEffect } from 'react'
+import { useQuery, useQueryClient } from 'react-query'
+import CharacterCard from '../../components/characterCard/CharacterCard';
+import { getCharacters } from '../../api/apiCalls';
 
 const Character = () => {
+
+    const queryClient = useQueryClient();
+    const [page, setPage] = useState(1);
+    const { data, error, isLoading, isFetching, isPreviousData } = useQuery(["characters", page], () => getCharacters(page), { keepPreviousData: true, staleTime: 5000 });
+
+    // Prefetch the next page!
+    useEffect(() => {
+        if (data?.info.next) {
+            queryClient.prefetchQuery(['characters', page + 1], () => getCharacters(page + 1))
+        }
+    }, [data, page, queryClient]);
+
     return (
         <div className='container'>
 
@@ -16,20 +30,26 @@ const Character = () => {
                 <div className='mt-4 w-full sm:flex sm:flex-col'>
 
                     <div className='w-full flex flex-col sm:flex-row items-center justify-center flex-wrap gap-5'>
-
-                        <CharacterCard name='Rick' status='Alive' species='HUman' image="https://rickandmortyapi.com/api/character/avatar/23.jpeg" location='eart' episode='erds' />
-
-                        <CharacterCard name='Rick' status='Dead' species='HUman' image="https://rickandmortyapi.com/api/character/avatar/23.jpeg" location='eart' episode='erds' />
-
-                        <CharacterCard name='Rick' status='unknown' species='HUman' image="https://rickandmortyapi.com/api/character/avatar/23.jpeg" location='eart' episode='erds' />
-
-                        <CharacterCard name='Rick' status='Alive' species='HUman' image="https://rickandmortyapi.com/api/character/avatar/23.jpeg" location='eart' episode='erds' />
-
-                        <CharacterCard name='Rick' status='Alive' species='HUman' image="https://rickandmortyapi.com/api/character/avatar/23.jpeg" location='eart' episode='erds' />
-
+                        {isLoading && (<div>Loading...</div>)}
+                        {error && <div>Error: {error.message}</div>}
+                        {data &&
+                            data.results?.map(character => (
+                                <CharacterCard key={character.id} name={character.name} status={character.status} species={character.species} image={character.image} location={character.location?.name} episode={character.episode[0]} />
+                            ))
+                        }
                     </div>
 
-                    <div>Paginate</div>
+                    <div>
+                        <div>Current Page: {page}</div>
+                        <button onClick={() => setPage(old => Math.max(old - 1, 1))}>Previous Page</button>
+                        <button onClick={() => { setPage(old => (data?.info.next ? old + 1 : old)) }} disabled={isPreviousData || !data?.info.next}>Next Page</button>
+                        {
+                            // Since the last page's data potentially sticks around between page requests,
+                            // we can use `isFetching` to show a background loading
+                            // indicator since our `status === 'loading'` state won't be triggered
+                            isFetching ? <span> Loading...</span> : null
+                        }
+                    </div>
                 </div>
             </div>
         </div>
