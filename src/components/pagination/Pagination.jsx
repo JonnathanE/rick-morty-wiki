@@ -52,11 +52,7 @@ const Pagination = ({ info, page, setPage, isNext, isPreviousData, dataLength, i
                         // indicator since our `status === 'loading'` state won't be triggered
                         // TODO: add a spinner Loading... Example: https://tailwindcomponents.com/component/full-page-overlay-loading-screen
                         isFetching
-                            ? <div class="w-full h-full fixed block top-0 left-0 bg-white opacity-75 z-50">
-                                <span class="text-green-500 opacity-75 top-1/2 my-0 mx-auto block relative w-0 h-0" style={{top: '50%'}}>
-                                    <i class="fas fa-circle-notch fa-spin fa-5x"></i>
-                                </span>
-                            </div>
+                            ? <span>Login...</span>
                             : null
                     }
                 </div>
