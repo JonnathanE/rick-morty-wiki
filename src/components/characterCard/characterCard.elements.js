@@ -4,7 +4,7 @@ export const Card = tw.div`
     w-72
     sm:w-64 
     bg-white 
-    shadow-xl 
+    shadow-lg
     rounded 
     overflow-hidden 
     border-2
