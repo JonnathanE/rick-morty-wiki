@@ -5,7 +5,7 @@ export const CharacterWrapper = tw.div`
 `;
 
 export const CharacterLeft = tw.div`
-bg-blue-500 mt-4 w-full sm:w-80 sm:mr-6
+bg-white mt-4 w-full sm:w-96 sm:mr-6
 `;
 
 export const CharacterRight = tw.div`
