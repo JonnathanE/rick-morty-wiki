@@ -12,7 +12,6 @@ import {
 } from './character.elements';
 import Search from '../../components/search/Search';
 import Title from '../../atoms/title/Title';
-import Filters from '../../components/filters/Filters';
 import Accordion from '../../components/accordion/Accordion';
 
 const Character = () => {
@@ -33,11 +32,17 @@ const Character = () => {
 
     const { info } = data || {};
 
-    const dataFiltersStatus = ['alive', 'dead', 'unknown']
-
+    const dataFiltersStatus = ['Alive', 'Dead', 'Unknown']
     const dataFiltersSpecies = ['Human', 'Alien', 'Humanoid', 'Poopybutthole', 'Mythological', 'Unknown', 'Animal', 'Disease', 'Robot', 'Cronenberg', 'Planet']
+    const dataFiltersGender = ['Female', 'Male', 'Genderless', 'Unknown']
 
-    const dataFiltersGender = ['female', 'male', 'genderless', 'unknown']
+    const clearAllFilters = () => {
+        setStatusFilter('');
+        setSpaciesFilter('');
+        setGenderFilter('');
+        setPage(1);
+        window.location.reload(false);
+    }
 
     // Prefetch the next page!
     useEffect(() => {
@@ -46,7 +51,7 @@ const Character = () => {
                 () => getCharacters(page + 1, search, statusFilter, spaciesFilter, genderFilter)
             )
         }
-    }, [data, page, queryClient, search]);
+    }, [data, page, queryClient, search, statusFilter, spaciesFilter, genderFilter]);
 
     return (
         <div className='container'>
@@ -60,22 +65,12 @@ const Character = () => {
             <CharacterWrapper>
                 <CharacterLeft>
                     <div>
-                        <p className='text-center text-xl text-black'>Filter</p>
-                        {/* 
-                            // TODO: Implement the functionality to clear all filters
-                        */}
-                        <div className='text-center'>Clear Filter</div>
-                        {/* 
-                            // TODO: Add filter toggles
-                        */}
-                        <div>Togles</div>
+                        <p className='text-center text-xl text-black font-semibold'>Filters</p>
+                        <div onClick={clearAllFilters} className='text-center cursor-pointer underline text-blue-500 mb-3' >Clear Filters</div>
                         <div>
-                            {/* 
-                            // TODO: Sterilize radio buttons
-                            */}
-                            <Accordion title='Satatus' name='status' filters={dataFiltersStatus} setFilter={setStatusFilter} setPage={setPage} />
-                            <Accordion title='Species' name='species' filters={dataFiltersSpecies} setFilter={setSpaciesFilter} setPage={setPage} />
-                            <Accordion title='Gender' name='gender' filters={dataFiltersGender} setFilter={setGenderFilter} setPage={setPage} />
+                            <Accordion title='Satatus' name='status' filters={dataFiltersStatus} filterName={statusFilter} setFilter={setStatusFilter} setPage={setPage} isOpen={true} />
+                            <Accordion title='Species' name='species' filters={dataFiltersSpecies} filterName={spaciesFilter} setFilter={setSpaciesFilter} setPage={setPage} />
+                            <Accordion title='Gender' name='gender' filters={dataFiltersGender} filterName={genderFilter} setFilter={setGenderFilter} setPage={setPage} />
                         </div>
                     </div>
                 </CharacterLeft>
