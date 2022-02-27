@@ -1,4 +1,5 @@
 import ReactPaginate from 'react-paginate';
+import Searching from '../searching/Searching';
 import { PaginationContainer, PaginationMobil, PaginationPc, Info, InfoBold } from './pagination.elements';
 
 const Pagination = ({ info, page, setPage, isNext, isPreviousData, dataLength, isFetching }) => {
@@ -35,6 +36,15 @@ const Pagination = ({ info, page, setPage, isNext, isPreviousData, dataLength, i
                         results
                     </Info>
                 </div>
+                {
+                    // Since the last page's data potentially sticks around between page requests,
+                    // we can use `isFetching` to show a background loading
+                    // indicator since our `status === 'loading'` state won't be triggered
+                    // TODO: add a spinner Loading... Example: https://tailwindcomponents.com/component/full-page-overlay-loading-screen
+                    isFetching
+                        ? <Searching />
+                        : null
+                }
                 <div>
                     <ReactPaginate
                         className='paginate'
@@ -46,15 +56,6 @@ const Pagination = ({ info, page, setPage, isNext, isPreviousData, dataLength, i
                         onPageChange={({ selected }) => setPage(selected + 1)}
                         pageCount={Math.ceil(info?.pages)}
                     />
-                    {
-                        // Since the last page's data potentially sticks around between page requests,
-                        // we can use `isFetching` to show a background loading
-                        // indicator since our `status === 'loading'` state won't be triggered
-                        // TODO: add a spinner Loading... Example: https://tailwindcomponents.com/component/full-page-overlay-loading-screen
-                        isFetching
-                            ? <span>Login...</span>
-                            : null
-                    }
                 </div>
             </PaginationPc>
         </PaginationContainer>

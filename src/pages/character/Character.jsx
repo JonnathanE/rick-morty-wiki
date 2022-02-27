@@ -13,6 +13,8 @@ import {
 import Search from '../../components/search/Search';
 import Title from '../../atoms/title/Title';
 import Accordion from '../../components/accordion/Accordion';
+import Spinner from '../../components/spinner/Spinner';
+import NoSearch from '../../components/noSearch/NoSearch';
 
 const Character = () => {
 
@@ -55,13 +57,10 @@ const Character = () => {
 
     return (
         <div className='container'>
-
             <Title>Characters</Title>
-
             <div className='mt-4'>
                 <Search setSearch={setSearch} setPage={setPage} placeholder="Search for characters" />
             </div>
-
             <CharacterWrapper>
                 <CharacterLeft>
                     <div>
@@ -74,15 +73,10 @@ const Character = () => {
                         </div>
                     </div>
                 </CharacterLeft>
-
                 <CharacterRight>
-                    {/**
-                     // TODO: CREATE THE COMPONENT FOR LOADAING, FETCHING AND ERROR
-                     */}
-                    {isLoading && (<div>Loading...</div>)}
-                    {isFetching && (<div>Fetching...</div>)}
-                    {error && <div>My Error: {error.message}</div>}
+                    {isFetching && (<Spinner />)}
                     <CharacterCardContainer>
+                        {error && <NoSearch search={search} errorMessage={error.message} />}
                         {data &&
                             data.results?.map(character => (
                                 <CharacterCard key={character.id} name={character.name} status={character.status} species={character.species} image={character.image} location={character.location?.name} episode={character.episode[0]} />
@@ -91,7 +85,6 @@ const Character = () => {
                     </CharacterCardContainer>
                 </CharacterRight>
             </CharacterWrapper>
-
             <CharacterPaginationContainer>
                 <Pagination info={info} page={page} setPage={setPage} isNext={data?.info.next} isPreviousData={isPreviousData} dataLength={20} isFetching={isFetching} />
             </CharacterPaginationContainer>
