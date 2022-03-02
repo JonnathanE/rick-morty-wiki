@@ -9,6 +9,9 @@ import {
     CharacterCardContainer,
 } from './episode.elements';
 import CharacterCard from '../../components/characterCard/CharacterCard';
+import Select from '../../components/select/Select';
+import Spinner from '../../components/spinner/Spinner';
+import NoSearch from '../../components/noSearch/NoSearch';
 
 const Episode = () => {
 
@@ -29,20 +32,20 @@ const Episode = () => {
     }, [data?.characters, episode]);
 
     return (
-        <div>
+        <div className='container'>
+            {isLoading && <Spinner />}
+            {error && <NoSearch />}
             <Title>Episode: <span className='text-green-400'>{data?.name || "Unknown"}</span></Title>
             <h5 className='text-center'>Air Date: {data?.air_date || "Unknown"}</h5>
             <CharacterWrapper>
                 <CharacterLeft>
-                    <p className='text-center text-xl text-black font-semibold'>Pick Episodes</p>
-                    {/* 
-                    // TODO: Add episode list
-                     */}
-                    <div>
-                        Episodes are here
+                    <h4 className='text-center text-xl text-black font-semibold'>Pick Episodes</h4>
+                    <div className='mt-2'>
+                        <Select setItem={setEpisode} name='Episode' total={51} />
                     </div>
                 </CharacterLeft>
                 <CharacterRight>
+                    <h4 className='font-semibold text-center mb-2 mt-4 sm:mt-0 text-black text-xl'>List of characters who have been seen in the episode:</h4>
                     <CharacterCardContainer>
                         {characters?.map(character => (
                             <CharacterCard key={character.id} name={character.name} status={character.status} species={character.species} image={character.image} location={character.location?.name} episode={character.episode[0]} />
