@@ -1,6 +1,17 @@
+import { useState, useEffect } from 'react';
 import { Card, CardInfo, CardTitle, CardSection, CardSubtitle, CardRes, CartStatus } from './characterCard.elements';
 
 const CharacterCard = ({ name, status, species, image, location, episode }) => {
+
+    const [episodeRequest, setEpisodeRequest] = useState({});
+
+    useEffect(() => {
+        (async function () {
+            let data = await fetch(episode).then(res => res.json());
+            setEpisodeRequest(data);
+        })();
+    }, [episode]);
+
     return (
         <Card>
             <img src={image} alt={name} className='w-full' />
@@ -16,7 +27,7 @@ const CharacterCard = ({ name, status, species, image, location, episode }) => {
                 </CardSection>
                 <CardSection>
                     <CardSubtitle>First seen in:</CardSubtitle>
-                    <CardRes>{episode}</CardRes>
+                    <CardRes>Episode {episodeRequest?.id}: {episodeRequest?.name}</CardRes>
                 </CardSection>
             </CardInfo>
         </Card>
