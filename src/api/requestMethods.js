@@ -7,3 +7,7 @@ export const characterRequest = axios.create({
 export const episodeRequest = axios.create({
     baseURL: 'https://rickandmortyapi.com/api/episode'
 });
+
+export const locationRequest = axios.create({
+    baseURL: 'https://rickandmortyapi.com/api/location'
+})
