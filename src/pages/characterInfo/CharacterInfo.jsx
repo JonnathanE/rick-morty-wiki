@@ -33,7 +33,7 @@ const CharacterInfo = () => {
     }, [data?.episode]);
 
     return (
-        <div className='container'>
+        <div className='container min-h-screen'>
             <div className='flex justify-center mt-4'>
                 {isLoading && <Spinner />}
                 {error && <NoSearch />}

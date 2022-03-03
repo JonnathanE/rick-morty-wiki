@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# RICK AND MORTY WIKI
+The next project is a web application to search for the characters of the Rick and Morty series.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project consumes Axel Fuhrmann's [The Rick and Morty API](https://rickandmortyapi.com/).
 
-## Available Scripts
+The project is built in React. The API and client interface are at:
+- API: https://rickandmortyapi.com/
 
-In the project directory, you can run:
+- Preview: 
+## Authors
 
-### `yarn start`
+- [Jonnathan Espinoza](https://github.com/JonnathanE)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/JonnathanE)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/jonnathan-espinoza-604a41226)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/JonnathanE1)
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `yarn build`
+**Client:** React, Tailwind
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**API:** https://rickandmortyapi.com/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Run Locally
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone the project
 
-### `yarn eject`
+```bash
+  git clone https://github.com/JonnathanE/rick-morty-wiki.git
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Go to the project directory
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  cd rick-morty-wiki
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Install dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+  yarn
+```
 
-## Learn More
+Start the server
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+  yarn run start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Screenshots
 
-### Code Splitting
+![home-rick-and-morty](https://user-images.githubusercontent.com/33469147/156499048-d1642bde-6fc3-418f-81b0-84a2a411d15b.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![mobil](https://user-images.githubusercontent.com/33469147/156499858-9e4d7f0b-0b7c-4e9d-aaa9-0e093b3bcdbf.png)
 
-### Analyzing the Bundle Size
+![character-filter-rick-y-morty](https://user-images.githubusercontent.com/33469147/156499231-9aa4e526-184d-425d-b613-0b968e97c89c.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![simple-character](https://user-images.githubusercontent.com/33469147/156499722-b234045c-1492-4905-968c-a95c970c80b3.png)
 
-### Making a Progressive Web App
+![location-rick-and-morty](https://user-images.githubusercontent.com/33469147/156499411-b89bb2e5-3a25-41e9-8ce3-bb7bd335428e.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

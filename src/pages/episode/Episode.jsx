@@ -32,7 +32,7 @@ const Episode = () => {
     }, [data?.characters, episode]);
 
     return (
-        <div className='container'>
+        <div className='container min-h-screen mb-6'>
             {isLoading && <Spinner />}
             {error && <NoSearch />}
             <Title>Episode: <span className='text-green-400'>{data?.name || "Unknown"}</span></Title>

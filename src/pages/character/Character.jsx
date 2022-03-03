@@ -56,7 +56,7 @@ const Character = () => {
     }, [data, page, queryClient, search, statusFilter, spaciesFilter, genderFilter]);
 
     return (
-        <div className='container'>
+        <div className='container min-h-screen'>
             <Title>Characters</Title>
             <div className='mt-4'>
                 <Search setSearch={setSearch} setPage={setPage} placeholder="Search for characters" />
