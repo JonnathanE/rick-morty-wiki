@@ -6,7 +6,7 @@ The project consumes Axel Fuhrmann's [The Rick and Morty API](https://rickandmor
 The project is built in React. The API and client interface are at:
 - API: https://rickandmortyapi.com/
 
-- Preview: 
+- Preview Proyect: https://ryck-and-morty-wiki.web.app/
 ## Authors
 
 - [Jonnathan Espinoza](https://github.com/JonnathanE)
