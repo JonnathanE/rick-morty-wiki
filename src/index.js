@@ -7,7 +7,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools'
+// import { ReactQueryDevtools } from 'react-query/devtools';
 
 const queryClient = new QueryClient()
 
@@ -15,7 +15,8 @@ ReactDOM.render(
   <QueryClientProvider client={queryClient}>
     <React.StrictMode>
       <App />
-      <ReactQueryDevtools />
+      {/* Activate React Query Tools: */}
+      {/* <ReactQueryDevtools /> */}
     </React.StrictMode>
   </QueryClientProvider>,
   document.getElementById('root')
