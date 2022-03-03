@@ -3,7 +3,7 @@ import Picture from '../../images/img/Rick-And-Morty-Picture.png';
 
 const Home = () => {
     return (
-        <div className='relative'>
+        <div className='relative h-screen'>
             <div className='container flex flex-col-reverse sm:flex-row items-center gap-8 mt-14 sm:mt-2'>
 
                 <div className='flex flex-1 flex-col items-center lg:items-start sm:ml-8'>

@@ -1,5 +1,5 @@
 import { Container, LogoContainer, Menu, MenuItem, Wrapper } from './navbar.elements';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { slide as MenuBurger } from 'react-burger-menu';
 import { useMediaQuery } from 'react-responsive';
 import { deviceSice } from '../../hook/responsive';
@@ -32,11 +32,13 @@ const Navbar = () => {
         <Container>
             <Wrapper>
                 <IconContext.Provider value={{ style: { fontSize: "2em" } }}>
-                    <LogoContainer>
-                        <img src={Icon} alt='Icon Page' />
-                        <p>Rick and Morty</p>
-                        <p>Wiki</p>
-                    </LogoContainer>
+                    <Link to='/'>
+                        <LogoContainer>
+                            <img src={Icon} alt='Icon Page' />
+                            <p>Rick and Morty</p>
+                            <p>Wiki</p>
+                        </LogoContainer>
+                    </Link>
                     {isMobile
                         ? <MenuBurger right styles={stylesBurgerMenu}>{navbarMenu}</MenuBurger>
                         : navbarMenu
