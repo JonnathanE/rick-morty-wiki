@@ -5,6 +5,11 @@ export const getCharacters = async (page = 1, name = '', status = '', species = 
     return data;
 }
 
+export const getCharacter = async (id) => {
+    const { data } = await characterRequest.get(`/${id}`);
+    return data;
+}
+
 export const getEpisode = async (episode = 1) => {
     const { data } = await episodeRequest.get(`/${episode}`);
     return data;

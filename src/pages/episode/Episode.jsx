@@ -23,7 +23,7 @@ const Episode = () => {
     useEffect(() => {
         (async function () {
             let results = await Promise.all(
-                data.characters.map(x => {
+                data?.characters.map(x => {
                     return fetch(x).then(res => res.json());
                 })
             );
@@ -47,8 +47,8 @@ const Episode = () => {
                 <CharacterRight>
                     <h4 className='font-semibold text-center mb-2 mt-4 sm:mt-0 text-black text-xl'>List of characters who have been seen in the episode:</h4>
                     <CharacterCardContainer>
-                        {characters?.map(character => (
-                            <CharacterCard key={character.id} name={character.name} status={character.status} species={character.species} image={character.image} location={character.location?.name} episode={character.episode[0]} />
+                        {characters.map(character => (
+                            <CharacterCard key={character.id} id={character.id} name={character.name} status={character.status} species={character.species} image={character.image} location={character.location?.name} episode={character.episode[0]} />
                         ))}
                     </CharacterCardContainer>
                 </CharacterRight>

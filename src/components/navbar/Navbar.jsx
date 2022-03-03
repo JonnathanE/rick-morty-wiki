@@ -17,7 +17,7 @@ const Navbar = () => {
                 <NavLink to='/' className={({ isActive }) => (isActive ? " text-green-400 border-b-2 border-b-green-400" : "")}>Home</NavLink>
             </MenuItem>
             <MenuItem>
-                <NavLink to='/characters' className={({ isActive }) => (isActive ? " text-green-400 border-b-2 border-b-green-400" : "")}>Character</NavLink>
+                <NavLink to='/character' className={({ isActive }) => (isActive ? " text-green-400 border-b-2 border-b-green-400" : "")}>Character</NavLink>
             </MenuItem>
             <MenuItem>
                 <NavLink to='/locations' className={({ isActive }) => (isActive ? " text-green-400 border-b-2 border-b-green-400" : "")}>Location</NavLink>

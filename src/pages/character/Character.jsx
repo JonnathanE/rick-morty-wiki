@@ -26,7 +26,7 @@ const Character = () => {
     const [spaciesFilter, setSpaciesFilter] = useState('');
     const [genderFilter, setGenderFilter] = useState('');
 
-    const { data, error, isLoading, isFetching, isPreviousData } = useQuery(
+    const { data, error, isFetching, isPreviousData } = useQuery(
         ["characters", page, search, statusFilter, spaciesFilter, genderFilter],
         () => getCharacters(page, search, statusFilter, spaciesFilter, genderFilter),
         { keepPreviousData: true, staleTime: 5000 }
@@ -79,7 +79,7 @@ const Character = () => {
                         {error && <NoSearch search={search} errorMessage={error.message} />}
                         {data &&
                             data.results?.map(character => (
-                                <CharacterCard key={character.id} name={character.name} status={character.status} species={character.species} image={character.image} location={character.location?.name} episode={character.episode[0]} />
+                                <CharacterCard key={character.id} id={character.id} name={character.name} status={character.status} species={character.species} image={character.image} location={character.location?.name} episode={character.episode[0]} />
                             ))
                         }
                     </CharacterCardContainer>

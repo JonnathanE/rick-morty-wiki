@@ -1,22 +1,26 @@
-import tw, { styled } from 'twin.macro';
+import tw, {styled} from 'twin.macro';
 
 export const Card = tw.div`
-    w-72
-    sm:w-64 
-    bg-white 
-    shadow-lg
-    rounded 
-    overflow-hidden 
-    border-2
-    cursor-pointer
+w-72
+sm:w-[700px]
+overflow-hidden
+sm:flex
+`;
+
+export const CardImgContainer = tw.div`
+
 `;
 
 export const CardInfo = tw.div`
-    p-2
+p-2 sm:ml-4
 `;
 
-export const CardTitle = tw.p`
-    text-xl font-bold
+export const CardInfoSection = tw.div`
+mt-2
+`;
+
+export const CardSubtitle = tw.span`
+text-gray-600
 `;
 
 export const CartStatus = styled.span`
@@ -34,13 +38,3 @@ export const CartStatus = styled.span`
     ${({ status }) => status === 'Dead' && tw`bg-red-600 text-white`}
     ${({ status }) => status === 'unknown' && tw`bg-gray-200 text-gray-700`}
 `;
-
-export const CardSection = tw.div`
-    mt-2
-`;
-
-export const CardSubtitle = tw.p`
-    text-gray-600
-`;
-
-export const CardRes = tw.p``

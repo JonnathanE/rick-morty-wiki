@@ -1,11 +1,10 @@
-import React from 'react'
 
 const Select = ({ name, setItem, total }) => {
     return (
         <div className='relative inline-block w-full text-gray-700'>
             <select name={name} id={name} onChange={e => setItem(e.target.value)} className='w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline'>
-                {[...Array(total).keys()].map(item => (
-                    <option value={item + 1}>{name} - {item + 1}</option>
+                {[...Array(total).keys()].map((item) => (
+                    <option value={item + 1} key={item}>{name} - {item + 1}</option>
                 ))}
             </select>
             <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
